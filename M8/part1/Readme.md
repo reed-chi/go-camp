@@ -19,8 +19,8 @@ startupProbe:
 ```
 resources:
 	limits:
-	  cpu: '500m'
-	  memory: 1Gi
+	  cpu: '1000m'
+	  memory: 2Gi
 	requests:
 	  cpu: 500m
 	  memory: 1Gi   

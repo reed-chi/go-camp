@@ -1,14 +1,14 @@
 - 优雅启动
 ```
-	startupProbe:
-	  httpGet:
-		path: /ping
-		port: 8080 
-		scheme: HTTP
-		initialDelaySeconds: 5
-		periodSeconds: 10
-		successThreshold: 1
-		timeoutSeconds: 3  
+startupProbe:
+  httpGet:
+	path: /ping
+	port: 8080 
+	scheme: HTTP
+	initialDelaySeconds: 5
+	periodSeconds: 10
+	successThreshold: 1
+	timeoutSeconds: 3  
 ```
 - 优雅终止
 ```
@@ -39,12 +39,14 @@ livenessProbe:
 ```
 - 日常运维需求，日志等级
 ```
+# 日志通过logtail收集到kafka
 env:
   - name: aliyun_logs_webapp
     value: "stdout"	
 ```
 
 ```
+# 日志文件存盘
 volumeMounts:
 - mountPath: /data
   name: volume-alicloud-nas-pvc

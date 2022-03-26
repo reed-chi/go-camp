@@ -3,6 +3,8 @@
 把我们的 httpserver 服务以 Istio Ingress Gateway 的形式发布出来。以下是你需要考虑的几点：
 
 1. 如何实现安全保证
+使用TLS证书 
+`curl --resolve httpsserver.cncamp.io:443:172.20.253.132 https://httpsserver.cncamp.io/healthz -v -k`
 ```
 ubuntu@VM-100-17-ubuntu:~$ kubectl  -n securesvc  get pods
 NAME                          READY   STATUS    RESTARTS   AGE
@@ -14,7 +16,7 @@ istio-ingressgateway   LoadBalancer   172.20.253.132   119.28.141.248   15021:30
 istiod                 ClusterIP      172.20.253.22    <none>           15010/TCP,15012/TCP,443/TCP,15014/TCP                                        3d2h
 ubuntu@VM-100-17-ubuntu:~$
 ubuntu@VM-100-17-ubuntu:~$
-ubuntu@VM-100-17-ubuntu:~$ curl --resolve httpsserver.cncamp.io:443:$INGRESS_IP https://httpsserver.cncamp.io/healthz -v -k
+ubuntu@VM-100-17-ubuntu:~$ curl --resolve httpsserver.cncamp.io:443:172.20.253.132 https://httpsserver.cncamp.io/healthz -v -k
 * Added httpsserver.cncamp.io:443:172.20.253.132 to DNS cache
 * Hostname httpsserver.cncamp.io was found in DNS cache
 *   Trying 172.20.253.132...
@@ -27,6 +29,8 @@ ubuntu@VM-100-17-ubuntu:~$ curl --resolve httpsserver.cncamp.io:443:$INGRESS_IP 
   CApath: /etc/ssl/certs
 ```
 2. 七层路由规则
+` curl -H "Host: simple.cncamp.io" 172.20.253.132/simple/hello `
+` curl -H "Host: simple.cncamp.io" 172.20.253.132/nginx `
 ```
 root@VM-100-17-ubuntu:~# kubectl  -n simple  get pods
 NAME                                READY   STATUS    RESTARTS   AGE

@@ -91,4 +91,4 @@ ubuntu@VM-100-17-ubuntu:~$ kubectl  -n istio-system  get vs
 NAME         GATEWAYS              HOSTS                               AGE
 tracing-vs   ["tracing-gateway"]   ["tracing.124.156.122.11.nip.io"]   14h
 ```
-[tracing](https://github.com/reed-chi/go-camp/blob/main/M12/tracing.png)
+[tracing](https://cncamp.oss-cn-beijing.aliyuncs.com/tracing-jaeger.png)

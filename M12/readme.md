@@ -4,8 +4,10 @@
 
 1. 如何实现安全保证
 
-使用TLS证书 
+使用TLS证书
+
 `curl --resolve httpsserver.cncamp.io:443:172.20.253.132 https://httpsserver.cncamp.io/healthz -v -k`
+
 ```
 ubuntu@VM-100-17-ubuntu:~$ kubectl  -n securesvc  get pods
 NAME                          READY   STATUS    RESTARTS   AGE
@@ -32,7 +34,9 @@ ubuntu@VM-100-17-ubuntu:~$ curl --resolve httpsserver.cncamp.io:443:172.20.253.1
 2. 七层路由规则
 
 ` curl -H "Host: simple.cncamp.io" 172.20.253.132/simple/hello `
+
 ` curl -H "Host: simple.cncamp.io" 172.20.253.132/nginx `
+
 ```
 root@VM-100-17-ubuntu:~# kubectl  -n simple  get pods
 NAME                                READY   STATUS    RESTARTS   AGE

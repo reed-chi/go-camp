@@ -2,9 +2,6 @@
 
 把我们的 httpserver 服务以 Istio Ingress Gateway 的形式发布出来。以下是你需要考虑的几点：
 
-
-# 模块12作业
-
 1. 如何实现安全保证
 ```
 ubuntu@VM-100-17-ubuntu:~$ kubectl  -n securesvc  get pods

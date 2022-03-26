@@ -3,6 +3,7 @@
 把我们的 httpserver 服务以 Istio Ingress Gateway 的形式发布出来。以下是你需要考虑的几点：
 
 1. 如何实现安全保证
+
 使用TLS证书 
 `curl --resolve httpsserver.cncamp.io:443:172.20.253.132 https://httpsserver.cncamp.io/healthz -v -k`
 ```
@@ -29,6 +30,7 @@ ubuntu@VM-100-17-ubuntu:~$ curl --resolve httpsserver.cncamp.io:443:172.20.253.1
   CApath: /etc/ssl/certs
 ```
 2. 七层路由规则
+
 ` curl -H "Host: simple.cncamp.io" 172.20.253.132/simple/hello `
 ` curl -H "Host: simple.cncamp.io" 172.20.253.132/nginx `
 ```
@@ -95,4 +97,4 @@ ubuntu@VM-100-17-ubuntu:~$ kubectl  -n istio-system  get vs
 NAME         GATEWAYS              HOSTS                               AGE
 tracing-vs   ["tracing-gateway"]   ["tracing.124.156.122.11.nip.io"]   14h
 ```
-![tracing](https://cncamp.oss-cn-beijing.aliyuncs.com/tracing-jaeger.png)
+![tracing-jager](https://cncamp.oss-cn-beijing.aliyuncs.com/tracing-jaeger.png)
